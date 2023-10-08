@@ -1,13 +1,16 @@
-import { PropsWithChildren } from "react";
-import { StyleSheet, View, StatusBar, ScrollView } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 import { theme } from "../../../config/theme/theme";
-import { Link } from "react-router-native";
-import StyleText from "../../ui/style-text/StyleText";
-import MenuList from "../../../utils/constants/menu/Menu";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import HomeView from "../../views/home/HomeView";
+import PickupView from "../../views/pickup/PickupView";
+import WalletView from "../../views/wallet/WalletView";
+import ProfileView from "../../views/profile/ProfileView";
+import TabBarCustom from "./TabBarCustom";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.appBar.primary,
+    backgroundColor: theme.background.primary,
     flexDirection: "row",
     paddingTop: StatusBar.currentHeight ?? 0,
   },
@@ -23,31 +26,70 @@ const styles = StyleSheet.create({
   },
 });
 
-interface Props extends PropsWithChildren {
-  active?: boolean;
-  to: string;
-}
+const Tab = createBottomTabNavigator();
 
-const AppBarTab = ({ active, children, to }: Props) => {
-  const textStyles = [styles.text, active && styles.active];
-  return (
-    <Link to={to}>
-      <StyleText fontWeight="bold" style={textStyles}>
-        {children}
-      </StyleText>
-    </Link>
-  );
-};
 export const AppBar = () => {
   return (
-    <View style={styles.container}>
-      <ScrollView horizontal style={styles.scroll}>
-        {MenuList.map((menuItem) => (
-          <AppBarTab to={menuItem.path} key={menuItem.path}>
-            {menuItem.title}
-          </AppBarTab>
-        ))}
-      </ScrollView>
-    </View>
+    <>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={styles.container.backgroundColor}
+      />
+
+      <Tab.Navigator
+        screenOptions={{
+          headerShown: false,
+          tabBarStyle: {
+            height: 75,
+            display: "flex",
+            flexDirection: "column",
+            alignContent: "center",
+          },
+        }}
+        initialRouteName="Inicio"
+        // tabBar={(props) => <TabBarCustom {...props} />}
+      >
+        <Tab.Screen
+          name="Inicio"
+          component={HomeView}
+          options={{
+            title: "Inicio",
+            tabBarIcon: ({ color, size }) => (
+              <Icon name="home" size={30} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Billetera"
+          component={WalletView}
+          options={{
+            title: "Billetera",
+            /* tabBarIcon: ({ color, size }) => (
+              <Ionicons name="ios-home" size={size} color={color} />
+            ), */
+          }}
+        />
+        <Tab.Screen
+          name="Recolecciones"
+          component={PickupView}
+          options={{
+            title: "Recolecciones",
+            /* tabBarIcon: ({ color, size }) => (
+              <Ionicons name="ios-home" size={size} color={color} />
+            ), */
+          }}
+        />
+        <Tab.Screen
+          name="Perfil"
+          component={ProfileView}
+          options={{
+            title: "Perfil",
+            /* tabBarIcon: ({ color, size }) => (
+              <Ionicons name="ios-home" size={size} color={color} />
+            ), */
+          }}
+        />
+      </Tab.Navigator>
+    </>
   );
 };
