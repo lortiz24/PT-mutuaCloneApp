@@ -10,7 +10,7 @@ interface Props {
   title: string;
 }
 
-const ButtonRedirect = ({ styleText, styleTouchable, title }: Props) => {
+const FloatButtom = ({ styleText, styleTouchable, title }: Props) => {
   return (
     <TouchableOpacity style={styleTouchable}>
       <Fontisto name="recycle" size={25} color={theme.colors.black} />
@@ -20,4 +20,4 @@ const ButtonRedirect = ({ styleText, styleTouchable, title }: Props) => {
   );
 };
 
-export default ButtonRedirect;
+export default FloatButtom;

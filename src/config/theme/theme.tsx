@@ -1,7 +1,7 @@
 export const theme: ITheme = {
   colors: {
-    textPrimary: '#F1F1F1',
-    textSecondary: '#EEEEEE',
+    textPrimary: '#F0F0F0',
+    textSecondary: '#F4F4F4',
     primary: '#0366d6',
     white: '#fefefe',
     green: '#D8FC3A',

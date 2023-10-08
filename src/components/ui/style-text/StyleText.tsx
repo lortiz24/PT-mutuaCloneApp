@@ -57,7 +57,7 @@ export default function StyleText({
     fontWeight === 'bold' && styles.bold,
     style
   ];
-
+console.log('textStyles',textStyles)
   return (
     <Text style={textStyles} {...textProps}>
       {children}
