@@ -38,7 +38,7 @@ export const AppBar = () => {
         screenOptions={{
           headerShown: false,
           tabBarStyle: {
-            height: 80,
+            height: 100,
             borderTopWidth: 0,
           },
         }}
@@ -48,10 +48,15 @@ export const AppBar = () => {
           component={HomeView}
           options={{
             title: '',
-            tabBarIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size, focused }) => (
               <>
-                <IconFeather name="home" size={size} color={color} />
-                <StyleText style={{ color: theme.appBar.textPrimary }}>Inicio</StyleText>
+                <IconFeather name="home" size={size} color={color} style={{ paddingBottom: 5 }} />
+                <StyleText
+                  style={{
+                    color: focused ? theme.appBar.textSecondary : theme.appBar.textPrimary,
+                  }}>
+                  Inicio
+                </StyleText>
               </>
             ),
           }}
@@ -61,10 +66,20 @@ export const AppBar = () => {
           component={WalletView}
           options={{
             title: '',
-            tabBarIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size, focused }) => (
               <>
-                <SimpleLineIcons name="wallet" size={size} color={color} />
-                <StyleText style={{ color: theme.appBar.textPrimary }}>Billetera</StyleText>
+                <SimpleLineIcons
+                  name="wallet"
+                  size={size}
+                  color={color}
+                  style={{ paddingBottom: 5 }}
+                />
+                <StyleText
+                  style={{
+                    color: focused ? theme.appBar.textSecondary : theme.appBar.textPrimary,
+                  }}>
+                  Billetera
+                </StyleText>
               </>
             ),
           }}
@@ -74,10 +89,20 @@ export const AppBar = () => {
           component={PickupView}
           options={{
             title: '',
-            tabBarIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size, focused }) => (
               <>
-                <IconFeather name="calendar" size={size} color={color} />
-                <StyleText style={{ color: theme.appBar.textPrimary }}>Recolecciones</StyleText>
+                <IconFeather
+                  name="calendar"
+                  size={size}
+                  color={color}
+                  style={{ paddingBottom: 5 }}
+                />
+                <StyleText
+                  style={{
+                    color: focused ? theme.appBar.textSecondary : theme.appBar.textPrimary,
+                  }}>
+                  Recolecciones
+                </StyleText>
               </>
             ),
           }}
@@ -87,10 +112,15 @@ export const AppBar = () => {
           component={ProfileView}
           options={{
             title: '',
-            tabBarIcon: ({ color, size }) => (
+            tabBarIcon: ({ color, size, focused }) => (
               <>
-                <IconFeather name="user" size={size} color={color} />
-                <StyleText style={{ color: theme.appBar.textPrimary }}>Perfil</StyleText>
+                <IconFeather name="user" size={size} color={color} style={{ paddingBottom: 5 }} />
+                <StyleText
+                  style={{
+                    color: focused ? theme.appBar.textSecondary : theme.appBar.textPrimary,
+                  }}>
+                  Perfil
+                </StyleText>
               </>
             ),
           }}
