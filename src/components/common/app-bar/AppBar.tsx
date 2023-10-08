@@ -1,4 +1,4 @@
-import { StyleSheet, StatusBar } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { theme } from '../../../config/theme/theme';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeView from '../../views/home/HomeView';
@@ -9,31 +9,22 @@ import IconFeather from 'react-native-vector-icons/Feather';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import StyleText from '../../ui/style-text/StyleText';
 
-
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.background.primary,
-    flexDirection: 'row',
-    paddingTop: StatusBar.currentHeight ?? 0,
-  },
-  text: {
-    color: theme.appBar.textPrimary,
-    paddingHorizontal: 10,
-  },
-  scroll: {
-    paddingBottom: 15,
-  },
-  active: {
+  styleIcon: { paddingBottom: 5 },
+  tabActive: {
     color: theme.appBar.textSecondary,
+  },
+  tabInActive: {
+    color: theme.appBar.textPrimary,
   },
 });
 
 const Tab = createBottomTabNavigator();
 
-export const  AppBar = () => {
+export const AppBar = () => {
   return (
     <>
-      <StatusBar barStyle="light-content" backgroundColor={styles.container.backgroundColor} />
+      {/* <StatusBar backgroundColor={styles.container.backgroundColor} /> */}
 
       <Tab.Navigator
         screenOptions={{
@@ -51,11 +42,8 @@ export const  AppBar = () => {
             title: '',
             tabBarIcon: ({ color, size, focused }) => (
               <>
-                <IconFeather name="home" size={size} color={color} style={{ paddingBottom: 5 }} />
-                <StyleText
-                  style={{
-                    color: focused ? theme.appBar.textSecondary : theme.appBar.textPrimary,
-                  }}>
+                <IconFeather name="home" size={size} color={color} style={styles.styleIcon} />
+                <StyleText style={focused ? styles.tabActive : styles.tabInActive}>
                   Inicio
                 </StyleText>
               </>
@@ -69,16 +57,8 @@ export const  AppBar = () => {
             title: '',
             tabBarIcon: ({ color, size, focused }) => (
               <>
-                <SimpleLineIcons
-                  name="wallet"
-                  size={size}
-                  color={color}
-                  style={{ paddingBottom: 5 }}
-                />
-                <StyleText
-                  style={{
-                    color: focused ? theme.appBar.textSecondary : theme.appBar.textPrimary,
-                  }}>
+                <SimpleLineIcons name="wallet" size={size} color={color} style={styles.styleIcon} />
+                <StyleText style={focused ? styles.tabActive : styles.tabInActive}>
                   Billetera
                 </StyleText>
               </>
@@ -92,16 +72,8 @@ export const  AppBar = () => {
             title: '',
             tabBarIcon: ({ color, size, focused }) => (
               <>
-                <IconFeather
-                  name="calendar"
-                  size={size}
-                  color={color}
-                  style={{ paddingBottom: 5 }}
-                />
-                <StyleText
-                  style={{
-                    color: focused ? theme.appBar.textSecondary : theme.appBar.textPrimary,
-                  }}>
+                <IconFeather name="calendar" size={size} color={color} style={styles.styleIcon} />
+                <StyleText style={focused ? styles.tabActive : styles.tabInActive}>
                   Recolecciones
                 </StyleText>
               </>
@@ -115,11 +87,8 @@ export const  AppBar = () => {
             title: '',
             tabBarIcon: ({ color, size, focused }) => (
               <>
-                <IconFeather name="user" size={size} color={color} style={{ paddingBottom: 5 }} />
-                <StyleText
-                  style={{
-                    color: focused ? theme.appBar.textSecondary : theme.appBar.textPrimary,
-                  }}>
+                <IconFeather name="user" size={size} color={color} style={styles.styleIcon} />
+                <StyleText style={focused ? styles.tabActive : styles.tabInActive}>
                   Perfil
                 </StyleText>
               </>

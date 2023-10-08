@@ -10,6 +10,7 @@ export const theme: ITheme = {
   fontSizes: {
     body: 14,
     subHeading: 16,
+    headingTitle: 22,
   },
   fonts: {
     main: 'System',
@@ -29,12 +30,34 @@ export const theme: ITheme = {
 };
 
 export interface ITheme {
-  colors: { [key in TColors]: string };
-  fontSizes: { [key in TFontSize]: number };
-  fonts: { [key: string]: string };
-  appBar: { [key in TAppbar]: string };
-  fontWeights: { [key: string]: TFontWeight };
-  background: { [key: string]: string };
+  colors: {
+    textPrimary: string;
+    textSecondary: string;
+    primary: string;
+    white: string;
+    green: string;
+    black: string;
+  };
+  fontSizes: {
+    body: number;
+    subHeading: number;
+    headingTitle: number;
+  };
+  fonts: {
+    main: string;
+  };
+  appBar: {
+    primary: string;
+    textPrimary: string;
+    textSecondary: string;
+  };
+  fontWeights: {
+    normal: TFontWeight;
+    bold: TFontWeight;
+  };
+  background: {
+    primary: string;
+  };
 }
 export type TFontWeight =
   | 'normal'
@@ -50,7 +73,7 @@ export type TFontWeight =
   | '900'
   | undefined;
 
-export type TFontSize = 'body' | 'subHeading';
+export type TFontSize = keyof ITheme['fontSizes'];
 export type TTextAlign = 'auto' | 'left' | 'right' | 'center' | 'justify' | undefined;
-export type TColors = 'textPrimary' | 'textSecondary' | 'primary' | 'white' | 'green' | 'black';
-export type TAppbar = 'primary' | 'textPrimary' | 'textSecondary';
+export type TColors = keyof ITheme['colors'];
+export type TAppbar = keyof ITheme['appBar'];

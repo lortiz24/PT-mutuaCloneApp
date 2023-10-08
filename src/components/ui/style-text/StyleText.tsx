@@ -1,11 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { StyleProp, StyleSheet, Text, TextProps, TextStyle } from 'react-native';
-import {
-  TFontSize,
-  TFontWeight,
-  TTextAlign,
-  theme,
-} from '../../../config/theme/theme';
+import { TFontSize, TFontWeight, TTextAlign, theme } from '../../../config/theme/theme';
 
 const styles = StyleSheet.create({
   text: {
@@ -25,6 +20,9 @@ const styles = StyleSheet.create({
   },
   subHeading: {
     fontSize: theme.fontSizes.subHeading,
+  },
+  headingTitle: {
+    fontSize: theme.fontSizes.headingTitle,
   },
   textAlignCenter: {
     textAlign: 'center',
@@ -54,10 +52,11 @@ export default function StyleText({
     color === 'primary' && styles.colorPrimary,
     color === 'secondary' && styles.colorSecondary,
     fontSize === 'subHeading' && styles.subHeading,
+    fontSize === 'headingTitle' && styles.headingTitle,
+    fontSize === 'subHeading' && styles.subHeading,
     fontWeight === 'bold' && styles.bold,
-    style
+    style,
   ];
-console.log('textStyles',textStyles)
   return (
     <Text style={textStyles} {...textProps}>
       {children}

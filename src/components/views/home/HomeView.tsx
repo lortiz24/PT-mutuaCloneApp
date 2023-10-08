@@ -1,59 +1,34 @@
-import { View, StyleSheet, Image } from 'react-native';
-import FloatButtom from '../../ui/button-redirect/FloatButtom';
-
+import { View, StyleSheet } from 'react-native';
+import RequestPickup from '../../common/requestPickup/RequestPickup';
 import { theme } from '../../../config/theme/theme';
-import StyleText from '../../ui/style-text/StyleText';
 import { News } from './News/News';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import HeaderHome from './header/HeaderHome';
+import AboutUsVideo from './video-home/AboutUsVideo';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import StyleText from '../../ui/style-text/StyleText';
 
 const HomeView = () => {
   return (
-    <View style={styles.container}>
-      <View style={{ paddingHorizontal: 15, rowGap: 10 }}>
-        <StyleText color="primary" style={{ fontSize: 20, opacity: 0.5 }}>
-          Buenas tardes mutante,
-        </StyleText>
-        <StyleText color="secondary" fontSize="subHeading" style={{ fontSize: 20 }}>
-          Jeffrey Saavedra
-        </StyleText>
-        <View style={{ marginTop: 5 }}>
-          <Image
-            style={{ width: '100%', height: 180, borderRadius: 7 }}
-            source={require('../../../../assets/ImageHome.jpg')}
-            resizeMode="cover"
-          />
-
-          <View style={styles.textContainer}>
-            <StyleText
-              color="secondary"
-              fontSize="subHeading"
-              style={{ fontSize: 22 }}
-              fontWeight="bold">
-              Conoce nuestra
-            </StyleText>
-            <StyleText
-              color="secondary"
-              fontSize="subHeading"
-              style={{ fontSize: 22 }}
-              fontWeight="bold">
-              FUERZA MUTANTE
-            </StyleText>
-          </View>
-        </View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.contentHomeContainer}>
+        <HeaderHome />
+        <AboutUsVideo />
         <News />
       </View>
-      <View style={styles.buttonContainer}>
-        <FloatButtom
-          styleText={styles.textStyle}
-          title="Solicitar recolección"
-          styleTouchable={styles.styleTouchable}
-        />
-      </View>
-    </View>
+      <RequestPickup styleTouchable={styles.styleTouchable}>
+        <Fontisto name="recycle" size={25} color={theme.colors.black} />
+        <StyleText style={styles.textStyle}>Solicitar recolección</StyleText>
+        <FontAwesome name="arrow-right" size={15} color={theme.colors.black} />
+      </RequestPickup>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: { flex: 1, marginTop: 10 },
+  contentHomeContainer: { paddingHorizontal: 15, rowGap: 10 },
   textStyle: {
     color: theme.colors.black,
     fontWeight: theme.fontWeights.bold,
@@ -71,23 +46,6 @@ const styles = StyleSheet.create({
     height: 70,
     backgroundColor: theme.colors.green,
     borderRadius: 100,
-  },
-  text: {
-    fontWeight: theme.fontWeights.normal,
-    fontSize: theme.fontSizes.body,
-    marginBottom: 10,
-  },
-  buttonContainer: {
-    alignItems: 'center',
-    width: '100%',
-    position: 'absolute',
-    bottom: 25,
-  },
-  textContainer: {
-    position: 'absolute',
-    bottom: 40,
-    padding: 10,
-    borderRadius: 7,
   },
 });
 
