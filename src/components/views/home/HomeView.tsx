@@ -1,17 +1,45 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import FloatButtom from '../../ui/button-redirect/FloatButtom';
 
 import { theme } from '../../../config/theme/theme';
 import StyleText from '../../ui/style-text/StyleText';
+import { News } from './News/News';
 
 const HomeView = () => {
   return (
     <View style={styles.container}>
-      <View style={{ paddingHorizontal: 15 }}>
-        <StyleText color="primary" style={{fontSize:20}}>Buenas tardes mutante,</StyleText>
-        <StyleText color="secondary" fontSize="subHeading">
+      <View style={{ paddingHorizontal: 15, rowGap: 10 }}>
+        <StyleText color="primary" style={{ fontSize: 20, opacity: 0.5 }}>
+          Buenas tardes mutante,
+        </StyleText>
+        <StyleText color="secondary" fontSize="subHeading" style={{ fontSize: 20 }}>
           Jeffrey Saavedra
         </StyleText>
+        <View style={{ marginTop: 5 }}>
+          <Image
+            style={{ width: '100%', height: 180, borderRadius: 7 }}
+            source={require('../../../../assets/ImageHome.jpg')}
+            resizeMode="cover"
+          />
+
+          <View style={styles.textContainer}>
+            <StyleText
+              color="secondary"
+              fontSize="subHeading"
+              style={{ fontSize: 22 }}
+              fontWeight="bold">
+              Conoce nuestra
+            </StyleText>
+            <StyleText
+              color="secondary"
+              fontSize="subHeading"
+              style={{ fontSize: 22 }}
+              fontWeight="bold">
+              FUERZA MUTANTE
+            </StyleText>
+          </View>
+        </View>
+        <News />
       </View>
       <View style={styles.buttonContainer}>
         <FloatButtom
@@ -54,6 +82,12 @@ const styles = StyleSheet.create({
     width: '100%',
     position: 'absolute',
     bottom: 25,
+  },
+  textContainer: {
+    position: 'absolute',
+    bottom: 40,
+    padding: 10,
+    borderRadius: 7,
   },
 });
 
