@@ -9,6 +9,7 @@ import IconFeather from 'react-native-vector-icons/Feather';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import StyleText from '../../ui/style-text/StyleText';
 
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.background.primary,
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
 
 const Tab = createBottomTabNavigator();
 
-export const AppBar = () => {
+export const  AppBar = () => {
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor={styles.container.backgroundColor} />
@@ -38,7 +39,7 @@ export const AppBar = () => {
         screenOptions={{
           headerShown: false,
           tabBarStyle: {
-            height: 100,
+            height: 120,
             borderTopWidth: 0,
           },
         }}
