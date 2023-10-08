@@ -1,9 +1,16 @@
-import React from "react";
-import { Text } from "react-native";
-import StyleText from "../../ui/style-text/StyleText";
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import Developing from '../../ui/errors/Developing';
 
 const ProfileView = () => {
-  return <StyleText>ProfileView</StyleText>;
+  return (
+    <View style={styles.container}>
+      <Developing />
+    </View>
+  );
 };
 
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+});
 export default ProfileView;

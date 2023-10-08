@@ -1,10 +1,6 @@
-import { AppBar } from "./src/components/common/app-bar/AppBar";
-import {
-  NavigationContainer,
-  DefaultTheme,
-  Theme,
-} from "@react-navigation/native";
-import { theme } from "./src/config/theme/theme";
+import { AppBar } from './src/components/common/app-bar/AppBar';
+import { NavigationContainer, DefaultTheme, Theme } from '@react-navigation/native';
+import { theme } from './src/config/theme/theme';
 
 const NavigationTheme: Theme = {
   ...DefaultTheme,
@@ -14,7 +10,6 @@ const NavigationTheme: Theme = {
     primary: theme.appBar.textSecondary,
     card: theme.appBar.primary,
     background: theme.background.primary,
-    border:theme.appBar.primary
   },
 };
 

@@ -1,17 +1,18 @@
-import { StyleSheet, StatusBar } from "react-native";
-import { theme } from "../../../config/theme/theme";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeView from "../../views/home/HomeView";
-import PickupView from "../../views/pickup/PickupView";
-import WalletView from "../../views/wallet/WalletView";
-import ProfileView from "../../views/profile/ProfileView";
-import TabBarCustom from "./TabBarCustom";
-import Icon from "react-native-vector-icons/FontAwesome";
+import { StyleSheet, StatusBar } from 'react-native';
+import { theme } from '../../../config/theme/theme';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeView from '../../views/home/HomeView';
+import PickupView from '../../views/pickup/PickupView';
+import WalletView from '../../views/wallet/WalletView';
+import ProfileView from '../../views/profile/ProfileView';
+import IconFeather from 'react-native-vector-icons/Feather';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import StyleText from '../../ui/style-text/StyleText';
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.background.primary,
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingTop: StatusBar.currentHeight ?? 0,
   },
   text: {
@@ -31,31 +32,27 @@ const Tab = createBottomTabNavigator();
 export const AppBar = () => {
   return (
     <>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor={styles.container.backgroundColor}
-      />
+      <StatusBar barStyle="light-content" backgroundColor={styles.container.backgroundColor} />
 
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
           tabBarStyle: {
-            height: 75,
-            display: "flex",
-            flexDirection: "column",
-            alignContent: "center",
+            height: 80,
+            borderTopWidth: 0,
           },
         }}
-        initialRouteName="Inicio"
-        // tabBar={(props) => <TabBarCustom {...props} />}
-      >
+        initialRouteName="Inicio">
         <Tab.Screen
           name="Inicio"
           component={HomeView}
           options={{
-            title: "Inicio",
+            title: '',
             tabBarIcon: ({ color, size }) => (
-              <Icon name="home" size={30} color={color} />
+              <>
+                <IconFeather name="home" size={size} color={color} />
+                <StyleText style={{ color: theme.appBar.textPrimary }}>Inicio</StyleText>
+              </>
             ),
           }}
         />
@@ -63,30 +60,39 @@ export const AppBar = () => {
           name="Billetera"
           component={WalletView}
           options={{
-            title: "Billetera",
-            /* tabBarIcon: ({ color, size }) => (
-              <Ionicons name="ios-home" size={size} color={color} />
-            ), */
+            title: '',
+            tabBarIcon: ({ color, size }) => (
+              <>
+                <SimpleLineIcons name="wallet" size={size} color={color} />
+                <StyleText style={{ color: theme.appBar.textPrimary }}>Billetera</StyleText>
+              </>
+            ),
           }}
         />
         <Tab.Screen
           name="Recolecciones"
           component={PickupView}
           options={{
-            title: "Recolecciones",
-            /* tabBarIcon: ({ color, size }) => (
-              <Ionicons name="ios-home" size={size} color={color} />
-            ), */
+            title: '',
+            tabBarIcon: ({ color, size }) => (
+              <>
+                <IconFeather name="calendar" size={size} color={color} />
+                <StyleText style={{ color: theme.appBar.textPrimary }}>Recolecciones</StyleText>
+              </>
+            ),
           }}
         />
         <Tab.Screen
           name="Perfil"
           component={ProfileView}
           options={{
-            title: "Perfil",
-            /* tabBarIcon: ({ color, size }) => (
-              <Ionicons name="ios-home" size={size} color={color} />
-            ), */
+            title: '',
+            tabBarIcon: ({ color, size }) => (
+              <>
+                <IconFeather name="user" size={size} color={color} />
+                <StyleText style={{ color: theme.appBar.textPrimary }}>Perfil</StyleText>
+              </>
+            ),
           }}
         />
       </Tab.Navigator>
