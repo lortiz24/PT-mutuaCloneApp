@@ -1,5 +1,5 @@
-import { View, StyleSheet } from "react-native";
-import StyleText from "../../ui/style-text/StyleText";
+import { View, StyleSheet } from 'react-native';
+import StyleText from '../../ui/style-text/StyleText';
 
 const HomeView = () => {
   return (
@@ -10,7 +10,7 @@ const HomeView = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
 });
 
 export default HomeView;
