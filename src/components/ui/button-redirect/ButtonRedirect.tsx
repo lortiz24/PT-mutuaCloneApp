@@ -1,10 +1,4 @@
-import {
-  StyleProp,
-  TextStyle,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  ViewStyle,
-} from 'react-native';
+import { StyleProp, TextStyle, TouchableOpacity, ViewStyle } from 'react-native';
 import StyleText from '../style-text/StyleText';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -19,9 +13,9 @@ interface Props {
 const ButtonRedirect = ({ styleText, styleTouchable, title }: Props) => {
   return (
     <TouchableOpacity style={styleTouchable}>
-      <Fontisto name="recycle" size={30} color={theme.colors.black} style={{ paddingBottom: 5 }} />
+      <Fontisto name="recycle" size={25} color={theme.colors.black} />
       <StyleText style={styleText}>{title}</StyleText>
-      <FontAwesome name="arrow-right" size={30} color={theme.colors.black} style={{ paddingBottom: 5 }} />
+      <FontAwesome name="arrow-right" size={15} color={theme.colors.black} />
     </TouchableOpacity>
   );
 };

@@ -1,5 +1,4 @@
 import { View, StyleSheet } from 'react-native';
-import StyleText from '../../ui/style-text/StyleText';
 import ButtonRedirect from '../../ui/button-redirect/ButtonRedirect';
 
 import { theme } from '../../../config/theme/theme';
@@ -22,15 +21,16 @@ const styles = StyleSheet.create({
     color: theme.colors.black,
     fontWeight: theme.fontWeights.bold,
     fontSize: theme.fontSizes.subHeading,
+    marginHorizontal: 7,
   },
   styleTouchable: {
     borderWidth: 1,
     color: theme.colors.black,
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     paddingHorizontal: 6,
     flexDirection: 'row',
-    width: 270,
+    width: 300,
     position: 'absolute',
     bottom: 25,
     height: 70,
