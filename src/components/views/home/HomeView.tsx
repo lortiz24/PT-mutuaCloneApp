@@ -8,7 +8,6 @@ import AboutUsVideo from './video-home/AboutUsVideo';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import StyleText from '../../ui/style-text/StyleText';
-
 const HomeView = () => {
   return (
     <SafeAreaView style={styles.container}>
